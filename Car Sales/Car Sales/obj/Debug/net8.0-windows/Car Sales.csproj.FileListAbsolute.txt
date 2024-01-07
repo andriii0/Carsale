@@ -1,0 +1,17 @@
+C:\Users\matvi\source\repos\Car Sales\Car Sales\bin\Debug\net8.0-windows\Car Sales.exe
+C:\Users\matvi\source\repos\Car Sales\Car Sales\bin\Debug\net8.0-windows\Car Sales.deps.json
+C:\Users\matvi\source\repos\Car Sales\Car Sales\bin\Debug\net8.0-windows\Car Sales.runtimeconfig.json
+C:\Users\matvi\source\repos\Car Sales\Car Sales\bin\Debug\net8.0-windows\Car Sales.dll
+C:\Users\matvi\source\repos\Car Sales\Car Sales\bin\Debug\net8.0-windows\Car Sales.pdb
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car_Sales.CarSaleForm.resources
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.csproj.GenerateResource.cache
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.AssemblyInfoInputs.cache
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.AssemblyInfo.cs
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.csproj.CoreCompileInputs.cache
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.dll
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\refint\Car Sales.dll
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.pdb
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car Sales.genruntimeconfig.cache
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\ref\Car Sales.dll
+C:\Users\matvi\source\repos\Car Sales\Car Sales\obj\Debug\net8.0-windows\Car_Sales.SaleRegistrationForm.resources
