@@ -61,7 +61,6 @@
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(434, 298);
             dataGridView.TabIndex = 2;
-            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
             dataGridView.ReadOnly = true;
             // 
             // UpdateButton

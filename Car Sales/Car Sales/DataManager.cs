@@ -34,7 +34,14 @@ namespace Car_Sales
                         string brand = data[0].Trim();
                         string model = data[1].Trim();
                         int year = int.Parse(data[2].Trim());
-                        double price = double.Parse(data[3].Trim());
+                        //this one is written by gpt im gonna be honest
+                        double price;
+                        if (!double.TryParse(data[3].Trim(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out price))
+                        {
+                            MessageBox.Show("Error with this: " + data[3]);
+                        }
+
+
 
                         Car newCar = new Car
                         {
