@@ -1,21 +1,16 @@
-# 08.01.2024 11:42:11 | Hyundai Azera (2009)
-- *Price*: 19301,39
-- *Customer*: 123
-- *Phone no.*: 321
-- *Address*: 2222
-- *ZipCode*: 213
----
-# 09.01.2024 9:35:24 | Chevrolet Silverado 3500 (2005)
-- *Price*: 12719,19
-- *Customer*: 3456
-- *Phone no.*: 1234
-- *Address*: 6789
-- *ZipCode*: 555
----
-# 09.01.2024 9:44:30 | Chevrolet Camaro (1997)
+# 09.01.2024 10:25:43 | Chevrolet Camaro (1997)
 - *Price*: 25050,62
-- *Customer*: 12314
-- *Phone no.*: 123
-- *Address*: 41231
-- *ZipCode*: 21314
+- *Customer*: 2AWRf
+- *Phone no.*: 124134
+- *Address*: 134dsgf
+- *ZipCode*: ge1324
+- *Accessories*: Rear View Camera
+---
+# 09.01.2024 10:27:05 | BMW Z3 (2000)
+- *Price*: 62796,77
+- *Customer*: kanye
+- *Phone no.*: 12451345
+- *Address*: 124135fsdhd
+- *ZipCode*: 1352wg
+- *Accessories*: Rear View Camera, Leather Car Interior, Matrix Headlights, Cruise control
 ---

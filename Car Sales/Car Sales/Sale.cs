@@ -14,5 +14,6 @@ namespace Car_Sales
         public string PhoneNo { get; set; }
         public string Address { get; set; }
         public string ZipCodeCity { get; set; }
+        public List<string> Accessories { get; set; } 
     }
 }

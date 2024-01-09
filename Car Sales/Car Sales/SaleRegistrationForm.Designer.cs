@@ -37,6 +37,11 @@
             RegisterBtn = new Button();
             label4 = new Label();
             txtZip = new TextBox();
+            RearCamera = new CheckBox();
+            label5 = new Label();
+            LeatherInterior = new CheckBox();
+            MatrixHeadlights = new CheckBox();
+            CruiseСontrol = new CheckBox();
             SuspendLayout();
             // 
             // txtCustomerName
@@ -89,7 +94,7 @@
             // 
             // RegisterBtn
             // 
-            RegisterBtn.Location = new Point(96, 293);
+            RegisterBtn.Location = new Point(106, 444);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(146, 50);
             RegisterBtn.TabIndex = 6;
@@ -113,11 +118,65 @@
             txtZip.Size = new Size(100, 23);
             txtZip.TabIndex = 7;
             // 
+            // RearCamera
+            // 
+            RearCamera.AutoSize = true;
+            RearCamera.Location = new Point(159, 279);
+            RearCamera.Name = "RearCamera";
+            RearCamera.Size = new Size(121, 19);
+            RearCamera.TabIndex = 9;
+            RearCamera.Text = "Rear View Camera";
+            RearCamera.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(63, 284);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Accessories";
+            // 
+            // LeatherInterior
+            // 
+            LeatherInterior.AutoSize = true;
+            LeatherInterior.Location = new Point(159, 314);
+            LeatherInterior.Name = "LeatherInterior";
+            LeatherInterior.Size = new Size(127, 19);
+            LeatherInterior.TabIndex = 11;
+            LeatherInterior.Text = "Leather Car Interior";
+            LeatherInterior.UseVisualStyleBackColor = true;
+            // 
+            // MatrixHeadlights
+            // 
+            MatrixHeadlights.AutoSize = true;
+            MatrixHeadlights.Location = new Point(159, 350);
+            MatrixHeadlights.Name = "MatrixHeadlights";
+            MatrixHeadlights.Size = new Size(120, 19);
+            MatrixHeadlights.TabIndex = 12;
+            MatrixHeadlights.Text = "Matrix Headlights";
+            MatrixHeadlights.UseVisualStyleBackColor = true;
+            // 
+            // CruiseСontrol
+            // 
+            CruiseСontrol.AutoSize = true;
+            CruiseСontrol.Location = new Point(159, 388);
+            CruiseСontrol.Name = "CruiseСontrol";
+            CruiseСontrol.Size = new Size(100, 19);
+            CruiseСontrol.TabIndex = 13;
+            CruiseСontrol.Text = "Cruise control";
+            CruiseСontrol.UseVisualStyleBackColor = true;
+            // 
             // SaleRegistrationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(359, 438);
+            ClientSize = new Size(349, 523);
+            Controls.Add(CruiseСontrol);
+            Controls.Add(MatrixHeadlights);
+            Controls.Add(LeatherInterior);
+            Controls.Add(label5);
+            Controls.Add(RearCamera);
             Controls.Add(label4);
             Controls.Add(txtZip);
             Controls.Add(RegisterBtn);
@@ -144,5 +203,10 @@
         private Button RegisterBtn;
         private Label label4;
         private TextBox txtZip;
+        private CheckBox RearCamera;
+        private Label label5;
+        private CheckBox LeatherInterior;
+        private CheckBox MatrixHeadlights;
+        private CheckBox CruiseСontrol;
     }
 }
