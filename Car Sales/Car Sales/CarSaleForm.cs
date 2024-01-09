@@ -11,7 +11,7 @@ namespace Car_Sales
     {
         private DataManager dataManager;
         public string filePath = "cars.csv";
-
+        private List<string[]> originalRows;
 
 
         public CarSaleForm()
@@ -19,6 +19,13 @@ namespace Car_Sales
             InitializeComponent();
             dataManager = new DataManager();
             dataManager.ImportFromCSV(filePath);
+
+            if (File.Exists(filePath))
+            {
+                originalRows = File.ReadAllLines(filePath)
+                                    .Select(line => line.Split(','))
+                                    .ToList();
+            }
         }
         public DataGridViewRow SelectedCarRow
         {
@@ -74,7 +81,43 @@ namespace Car_Sales
             saleRegistrationForm.ShowDialog();
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtFilter.Text.ToLower();
 
+                List<string[]> filteredRows = originalRows
+                    .Where(row => row.Any(cell => cell.ToLower().Contains(searchText)))
+                    .ToList();
+
+                dataGridView.Rows.Clear();
+
+                foreach (var row in filteredRows)
+                {
+                    dataGridView.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            txtFilter.Text = ""; 
+
+            if (originalRows != null && originalRows.Any())
+            {
+                dataGridView.Rows.Clear();
+                originalRows.ForEach(row => dataGridView.Rows.Add(row));
+            }
+            else
+            {
+                MessageBox.Show("No original data to reset.");
+            }
+        }
     }
 
 }

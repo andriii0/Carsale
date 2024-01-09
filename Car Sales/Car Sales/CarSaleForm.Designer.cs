@@ -28,40 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            textBox1 = new TextBox();
+            txtFilter = new TextBox();
             dataGridView = new DataGridView();
             UpdateButton = new Button();
             RegisterButton = new Button();
             SearchButton = new Button();
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            ResetButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // listBox1
+            // txtFilter
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(525, 97);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(162, 154);
-            listBox1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(742, 154);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 23);
-            textBox1.TabIndex = 1;
+            txtFilter.Location = new Point(574, 129);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(133, 23);
+            txtFilter.TabIndex = 1;
             // 
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Location = new Point(70, 79);
             dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
             dataGridView.Size = new Size(434, 298);
             dataGridView.TabIndex = 2;
-            dataGridView.ReadOnly = true;
             // 
             // UpdateButton
             // 
@@ -85,12 +78,13 @@
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(374, 407);
+            SearchButton.Location = new Point(574, 205);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(115, 44);
+            SearchButton.Size = new Size(133, 54);
             SearchButton.TabIndex = 6;
             SearchButton.Text = "Search";
             SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
             // 
             // label1
             // 
@@ -101,18 +95,48 @@
             label1.TabIndex = 8;
             label1.Text = "Avalible Cars:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(574, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(36, 15);
+            label2.TabIndex = 9;
+            label2.Text = "Filter:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(574, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(157, 15);
+            label3.TabIndex = 10;
+            label3.Text = "Type some keywords to filter";
+            // 
+            // ResetButton
+            // 
+            ResetButton.Location = new Point(574, 303);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(133, 54);
+            ResetButton.TabIndex = 11;
+            ResetButton.Text = "Reset filter settings";
+            ResetButton.UseVisualStyleBackColor = true;
+            ResetButton.Click += ResetButton_Click;
+            // 
             // CarSaleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(964, 551);
+            ClientSize = new Size(778, 551);
+            Controls.Add(ResetButton);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(SearchButton);
             Controls.Add(RegisterButton);
             Controls.Add(UpdateButton);
             Controls.Add(dataGridView);
-            Controls.Add(textBox1);
-            Controls.Add(listBox1);
+            Controls.Add(txtFilter);
             Name = "CarSaleForm";
             Text = "Form1";
             Load += CarSaleForm_Load;
@@ -122,13 +146,14 @@
         }
 
         #endregion
-
-        private ListBox listBox1;
-        private TextBox textBox1;
+        private TextBox txtFilter;
         private DataGridView dataGridView;
         private Button UpdateButton;
         private Button RegisterButton;
         private Button SearchButton;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button ResetButton;
     }
 }

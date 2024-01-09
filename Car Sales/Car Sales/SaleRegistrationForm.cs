@@ -37,7 +37,7 @@ namespace Car_Sales
             DataGridViewRow selectedRow = carSaleForm.SelectedCarRow;
 
             CultureInfo culture = CultureInfo.InvariantCulture;
-            if (selectedRow != null)
+            if (selectedRow != null && selectedRow.Index != 0)
             {
                 Sale newSale = new Sale
                 {
