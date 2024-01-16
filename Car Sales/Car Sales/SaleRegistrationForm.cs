@@ -15,8 +15,9 @@ namespace Car_Sales
     public partial class SaleRegistrationForm : Form
     {
         private CarSaleForm carSaleForm;
+        private string filePath;
 
-        public SaleRegistrationForm(CarSaleForm form)
+        public SaleRegistrationForm(CarSaleForm form, string filePath)
         {
             InitializeComponent();
             carSaleForm = form;
@@ -34,12 +35,6 @@ namespace Car_Sales
                 return;
             }
 
-            if (!txtPhoneNo.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("Please enter a correct phone number.");
-                return;
-            }
-
             DataGridViewRow selectedRow = carSaleForm.SelectedCarRow;
 
             CultureInfo culture = CultureInfo.InvariantCulture;
@@ -54,18 +49,18 @@ namespace Car_Sales
                 {
                     selectedAccessories.Add(LeatherInterior.Text);
                 }
-                if(MatrixHeadlights.Checked)
+                if (MatrixHeadlights.Checked)
                 {
                     selectedAccessories.Add(MatrixHeadlights.Text);
                 }
-                if(CruiseСontrol.Checked)
+                if (CruiseСontrol.Checked)
                 {
                     selectedAccessories.Add(CruiseСontrol.Text);
                 }
 
-                Sale newSale = new Sale
+                Customer newSale = new Customer
                 {
-                    SoldCar = new Car 
+                    SoldCar = new Car
                     {
                         Brand = selectedRow.Cells[0].Value?.ToString(),
                         Model = selectedRow.Cells[1].Value?.ToString(),
@@ -80,7 +75,7 @@ namespace Car_Sales
                     Accessories = selectedAccessories
                 };
 
-                DataManager dataManager = new DataManager();
+                Dealership dataManager = new Dealership();
                 dataManager.RegisterSale(newSale);
 
                 string accessoriesString = string.Join(", ", selectedAccessories);
@@ -92,10 +87,16 @@ namespace Car_Sales
                                             $"\n- *ZipCode*: {newSale.ZipCodeCity}" +
                                             $"\n- *Accessories*: {accessoriesString}\n---\n";
 
-                string filePath = "sales_export.md";
-                File.AppendAllText(filePath, markdownContent);
+                string MDfilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\sales_export.md");
+                File.AppendAllText(MDfilePath, markdownContent);
 
                 MessageBox.Show("Sale data added to Markdown file.");
+
+                carSaleForm.dataGridView.Rows.RemoveAt(selectedRow.Index);
+                carSaleForm.UpdateButton_Click(sender, e);
+
+                this.Close();
+
             }
             else
             {

@@ -5,20 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Car_Sales
 {
     public partial class CarSaleForm : Form
     {
-        private DataManager dataManager;
-        public string filePath = "cars.csv";
+        public Dealership dataManager;
+        public string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\cars.csv");
         private List<string[]> originalRows;
 
 
         public CarSaleForm()
         {
             InitializeComponent();
-            dataManager = new DataManager();
-            dataManager.ImportFromCSV(filePath);
+            dataManager = new Dealership();
+            dataManager.ImportFromCSV();
+
 
             if (File.Exists(filePath))
             {
@@ -38,7 +40,7 @@ namespace Car_Sales
             UpdateButton_Click(sender, e);
         }
 
-        private void UpdateButton_Click(object sender, EventArgs e)
+        public void UpdateButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -77,8 +79,22 @@ namespace Car_Sales
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            SaleRegistrationForm saleRegistrationForm = new SaleRegistrationForm(this);
-            saleRegistrationForm.ShowDialog();
+            DataGridViewRow selectedRow = SelectedCarRow;
+
+            bool isValidCarSelected = selectedRow != null &&
+                                      selectedRow.Cells.Count >= 4 &&
+                                      selectedRow.Cells[0].Value?.ToString().ToLower() == "brand" &&
+                                      selectedRow.Cells[1].Value?.ToString().ToLower() == "model";
+
+            if (isValidCarSelected)
+            {
+                MessageBox.Show("Please select a valid car to make a sale.");
+            }
+            else
+            {
+                SaleRegistrationForm saleRegistrationForm = new SaleRegistrationForm(this, filePath);
+                saleRegistrationForm.ShowDialog();
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -106,7 +122,7 @@ namespace Car_Sales
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            txtFilter.Text = ""; 
+            txtFilter.Text = "";
 
             if (originalRows != null && originalRows.Any())
             {
@@ -116,6 +132,37 @@ namespace Car_Sales
             else
             {
                 MessageBox.Show("No original data to reset.");
+            }
+        }
+
+        private void AdvancedSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string brandSearchText = BrandtxtBox.Text.ToLower();
+                string modelSearchText = ModeltxtBox.Text.ToLower();
+                string yearSearchText = YearTxtBox.Text.ToLower();
+                string priceSearchText = PriceTxtBox.Text.ToLower();
+
+                List<string[]> filteredRows = originalRows
+                    .Where(row =>
+                        (string.IsNullOrWhiteSpace(brandSearchText) || row[0].ToLower().Contains(brandSearchText)) &&
+                        (string.IsNullOrWhiteSpace(modelSearchText) || row[1].ToLower().Contains(modelSearchText)) &&
+                        (string.IsNullOrWhiteSpace(yearSearchText) || row[2].ToLower().Contains(yearSearchText)) &&
+                        (string.IsNullOrWhiteSpace(priceSearchText) || row[3].ToLower().Contains(priceSearchText))
+                    )
+                    .ToList();
+
+                dataGridView.Rows.Clear();
+
+                foreach (var row in filteredRows)
+                {
+                    dataGridView.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
     }
