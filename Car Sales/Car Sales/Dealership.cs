@@ -12,8 +12,6 @@ namespace Car_Sales
         private List<Customer> soldCars;
         public string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\cars.csv");
 
-        public List<Car> AvailableCars { get { return availableCars; } }
-
         public Dealership()
         {
             availableCars = new List<Car>();
