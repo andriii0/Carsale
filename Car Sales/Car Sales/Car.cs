@@ -23,11 +23,5 @@ namespace Car_Sales
                    Year == otherCar.Year &&
                    Math.Abs(Price - otherCar.Price) < double.Epsilon;
         }
-
-
-        public int GetHashCode()
-        {
-            return HashCode.Combine(Brand?.ToLower(), Model?.ToLower(), Year, Price);
-        }
     }
 }
