@@ -69,14 +69,6 @@ namespace Car_Sales
             }
         }
 
-        private void dataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
-            }
-        }
-
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = SelectedCarRow;
