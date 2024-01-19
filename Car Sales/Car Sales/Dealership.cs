@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Car_Sales
@@ -77,7 +79,7 @@ namespace Car_Sales
                         Brand = data[0].Trim(),
                         Model = data[1].Trim(),
                         Year = int.Parse(data[2].Trim()),
-                        Price = double.Parse(data[3].Trim())
+                        Price = double.Parse(data[3].Trim(), CultureInfo.InvariantCulture)
                     };
 
                     if (carInLine.Equals(soldCar))
