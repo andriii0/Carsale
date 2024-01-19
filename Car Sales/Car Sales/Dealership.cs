@@ -20,44 +20,6 @@ namespace Car_Sales
             soldCars = new List<Customer>();
         }
 
-        public void ImportFromCSV()
-        {
-            try
-            {
-                string[] lines = File.ReadAllLines(filePath);
-                foreach (string line in lines.Skip(1))
-                {
-                    string[] data = line.Split(',');
-
-                    if (data.Length >= 4)
-                    {
-                        string brand = data[0].Trim();
-                        string model = data[1].Trim();
-                        int year = int.Parse(data[2].Trim());
-                        double price;
-                        if (!double.TryParse(data[3].Trim(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out price))
-                        {
-                            MessageBox.Show("Error with this: " + data[3]);
-                        }
-
-                        Car newCar = new Car
-                        {
-                            Brand = brand,
-                            Model = model,
-                            Year = year,
-                            Price = price
-                        };
-
-                        availableCars.Add(newCar);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while importing from CSV: " + ex.Message);
-            }
-        }
-
         public void RegisterSale(Customer sale)
         {
             soldCars.Add(sale);

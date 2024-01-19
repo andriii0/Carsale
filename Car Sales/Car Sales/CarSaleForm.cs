@@ -19,7 +19,6 @@ namespace Car_Sales
         {
             InitializeComponent();
             dataManager = new Dealership();
-            dataManager.ImportFromCSV();
 
 
             if (File.Exists(filePath))
